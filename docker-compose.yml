@@ -22,3 +22,10 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=12345
     ports:
       - '3000:3000'
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: helloworld
+    ports:
+      - '5432:5432'
