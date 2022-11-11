@@ -1,0 +1,35 @@
+{
+    "name": "api-feature-redis",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/api/feature-redis/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/api/feature-redis",
+                "tsConfig": "libs/api/feature-redis/tsconfig.lib.json",
+                "packageJson": "libs/api/feature-redis/package.json",
+                "main": "libs/api/feature-redis/src/index.ts",
+                "assets": ["libs/api/feature-redis/*.md"]
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/api/feature-redis/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/api/feature-redis"],
+            "options": {
+                "jestConfig": "libs/api/feature-redis/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": ["scope:api", "type:feature", "context:cache"]
+}
