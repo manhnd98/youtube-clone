@@ -1,15 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
-
-import { Message } from '@youtube-clone/api-interfaces';
-
+import {Controller, Get, Req, Res} from '@nestjs/common';
 import { AppService } from './app.service';
+import {Request, Response, RestController} from "@youtube-clone/api/shared-core";
 
 @Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+export class AppController extends RestController {
+  constructor(private readonly appService: AppService) {
+    super();
+  }
 
   @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
+  getData(
+          @Req() request: Request,
+          @Res() response: Response
+  ){
+    return response.success('Helloworld');
   }
 }

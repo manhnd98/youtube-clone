@@ -12,13 +12,21 @@ import {MicroserviceOptions, Transport} from "@nestjs/microservices";
 async function bootstrap() {
   const SERVICE_NAME = 'TENANT';
 
-  const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
-    transport: Transport.TCP
+  const app = await NestFactory.create(AppModule);
+
+  const microservice = app.connectMicroservice({
+    transport: Transport.TCP,
+    options: {
+      host: '0.0.0.0',
+      port: 5001
+    }
   });
 
-  await app.listen();
+  await app.startAllMicroservices();
+  await app.listen(3001);
+
   Logger.log(
-    `🚀 ${SERVICE_NAME} is running`
+    `🚀 ${SERVICE_NAME} is running`, SERVICE_NAME
   );
 }
 
