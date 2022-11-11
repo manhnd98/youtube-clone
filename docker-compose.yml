@@ -25,7 +25,17 @@ services:
   postgres:
     image: postgres
     restart: always
+    volumes:
+      - ./data/posgres:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: helloworld
     ports:
       - '5432:5432'
+  redis:
+    container_name: redis
+    image: redis
+    command: /bin/sh -c "redis-server --requirepass helloworld"
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./data/redis:/data

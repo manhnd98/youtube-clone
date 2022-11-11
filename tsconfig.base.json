@@ -1,24 +1,32 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@youtube-clone/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@youtube-clone/monitor": ["libs/monitor/src/index.ts"],
-      "@youtube-clone/prometheus": ["libs/prometheus/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@youtube-clone/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+            "@youtube-clone/api/feature-auth": ["libs/api/feature-auth/src/index.ts"],
+            "@youtube-clone/api/feature-config": ["libs/api/feature-config/src/index.ts"],
+            "@youtube-clone/api/feature-prisma": ["libs/api/feature-prisma/src/index.ts"],
+            "@youtube-clone/api/feature-redis": ["libs/api/feature-redis/src/index.ts"],
+            "@youtube-clone/api/shared-core": ["libs/api/shared-core/src/index.ts"],
+            "@youtube-clone/api/shared-data-access-dtos": ["libs/api/shared-data-access-dtos/src/index.ts"],
+            "@youtube-clone/api/utils-config": ["libs/api/utils-config/src/index.ts"],
+            "@youtube-clone/monitor": ["libs/monitor/src/index.ts"],
+            "@youtube-clone/prometheus": ["libs/prometheus/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
 }
