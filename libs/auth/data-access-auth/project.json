@@ -1,0 +1,35 @@
+{
+    "name": "auth-data-access-auth",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/auth/data-access-auth/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/auth/data-access-auth",
+                "tsConfig": "libs/auth/data-access-auth/tsconfig.lib.json",
+                "packageJson": "libs/auth/data-access-auth/package.json",
+                "main": "libs/auth/data-access-auth/src/index.ts",
+                "assets": ["libs/auth/data-access-auth/*.md"]
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/auth/data-access-auth/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/auth/data-access-auth"],
+            "options": {
+                "jestConfig": "libs/auth/data-access-auth/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": ["scope:auth", "type:data-access", "context:auth"]
+}

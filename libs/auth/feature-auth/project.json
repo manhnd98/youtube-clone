@@ -1,0 +1,35 @@
+{
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "name": "auth-feature-auth",
+    "sourceRoot": "libs/auth/feature-auth/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/auth/feature-auth",
+                "tsConfig": "libs/auth/feature-auth/tsconfig.lib.json",
+                "packageJson": "libs/auth/feature-auth/package.json",
+                "main": "libs/auth/feature-auth/src/index.ts",
+                "assets": ["libs/auth/feature-auth/*.md"]
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/auth/feature-auth/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/auth/feature-auth"],
+            "options": {
+                "jestConfig": "libs/auth/feature-auth/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": ["scope:api", "type:feature", "context:auth"]
+}

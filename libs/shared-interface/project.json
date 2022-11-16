@@ -1,0 +1,35 @@
+{
+    "name": "shared-interface",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/shared-interface/src",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/js:tsc",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/libs/shared-interface",
+                "tsConfig": "libs/shared-interface/tsconfig.lib.json",
+                "packageJson": "libs/shared-interface/package.json",
+                "main": "libs/shared-interface/src/index.ts",
+                "assets": ["libs/shared-interface/*.md"]
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["libs/shared-interface/**/*.ts"]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/shared-interface"],
+            "options": {
+                "jestConfig": "libs/shared-interface/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": ["scope:api", "type:interface", "context:shared"]
+}
